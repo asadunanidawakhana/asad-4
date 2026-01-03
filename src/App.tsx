@@ -5,6 +5,7 @@ import Shop from './pages/Public/Shop';
 import ProductDetails from './pages/Public/ProductDetails';
 import Categories from './pages/Public/Categories';
 import Cart from './pages/Public/Cart';
+import FacebookPixel from './components/FacebookPixel';
 
 import Login from './pages/Auth/Login';
 import Register from './pages/Auth/Register';
@@ -47,65 +48,68 @@ import AdminSettings from './pages/Admin/Settings.tsx';
 
 function App() {
   return (
-    <Routes>
-      <Route element={<PublicLayout />}>
-        <Route path="/" element={<Home />} />
-        <Route path="/shop" element={<Shop />} />
-        <Route path="/product/:id" element={<ProductDetails />} />
-        <Route path="/categories" element={<Categories />} />
+    <>
+      <FacebookPixel />
+      <Routes>
+        <Route element={<PublicLayout />}>
+          <Route path="/" element={<Home />} />
+          <Route path="/shop" element={<Shop />} />
+          <Route path="/product/:id" element={<ProductDetails />} />
+          <Route path="/categories" element={<Categories />} />
 
-        {/* Static Pages */}
-        <Route path="/blog" element={<Blog />} />
-        <Route path="/about" element={<About />} />
-        <Route path="/contact" element={<Contact />} />
+          {/* Static Pages */}
+          <Route path="/blog" element={<Blog />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/contact" element={<Contact />} />
 
-        <Route path="/cart" element={<Cart />} />
-        <Route path="/checkout" element={<Checkout />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/register" element={<Register />} />
+          <Route path="/cart" element={<Cart />} />
+          <Route path="/checkout" element={<Checkout />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/register" element={<Register />} />
 
-        {/* User Dashboard Routes */}
-        <Route path="/dashboard" element={<UserLayout />}>
-          <Route index element={<DashboardOverview />} />
-          <Route path="orders" element={<MyOrders />} />
-          <Route path="prescriptions" element={<UserPrescriptions />} />
-          <Route path="wishlist" element={<Wishlist />} />
-          <Route path="addresses" element={<SavedAddresses />} />
-          <Route path="profile" element={<Profile />} />
-          <Route path="support" element={<SupportTickets />} />
+          {/* User Dashboard Routes */}
+          <Route path="/dashboard" element={<UserLayout />}>
+            <Route index element={<DashboardOverview />} />
+            <Route path="orders" element={<MyOrders />} />
+            <Route path="prescriptions" element={<UserPrescriptions />} />
+            <Route path="wishlist" element={<Wishlist />} />
+            <Route path="addresses" element={<SavedAddresses />} />
+            <Route path="profile" element={<Profile />} />
+            <Route path="support" element={<SupportTickets />} />
+          </Route>
         </Route>
-      </Route>
 
-      {/* Admin routes */}
-      <Route path="/admin/login" element={<AdminLogin />} />
-      <Route path="/admin" element={<AdminLayout />}>
-        <Route path="dashboard" element={<AdminDashboard />} />
+        {/* Admin routes */}
+        <Route path="/admin/login" element={<AdminLogin />} />
+        <Route path="/admin" element={<AdminLayout />}>
+          <Route path="dashboard" element={<AdminDashboard />} />
 
-        {/* Product Management */}
-        <Route path="products" element={<ProductList />} />
-        <Route path="products/new" element={<ProductForm />} />
-        <Route path="products/edit/:id" element={<ProductForm />} />
+          {/* Product Management */}
+          <Route path="products" element={<ProductList />} />
+          <Route path="products/new" element={<ProductForm />} />
+          <Route path="products/edit/:id" element={<ProductForm />} />
 
-        {/* Category Management */}
-        <Route path="categories" element={<CategoryList />} />
-        <Route path="categories/new" element={<CategoryForm />} />
-        <Route path="categories/edit/:id" element={<CategoryForm />} />
+          {/* Category Management */}
+          <Route path="categories" element={<CategoryList />} />
+          <Route path="categories/new" element={<CategoryForm />} />
+          <Route path="categories/edit/:id" element={<CategoryForm />} />
 
-        {/* Order Management */}
-        <Route path="orders" element={<OrderList />} />
-        <Route path="users" element={<UserList />} />
-        <Route path="prescriptions" element={<PrescriptionList />} />
-        <Route path="tickets" element={<TicketList />} />
+          {/* Order Management */}
+          <Route path="orders" element={<OrderList />} />
+          <Route path="users" element={<UserList />} />
+          <Route path="prescriptions" element={<PrescriptionList />} />
+          <Route path="tickets" element={<TicketList />} />
 
-        {/* Blog Management */}
-        <Route path="blogs" element={<BlogList />} />
-        <Route path="blogs/new" element={<BlogForm />} />
-        <Route path="blogs/edit/:id" element={<BlogForm />} />
+          {/* Blog Management */}
+          <Route path="blogs" element={<BlogList />} />
+          <Route path="blogs/new" element={<BlogForm />} />
+          <Route path="blogs/edit/:id" element={<BlogForm />} />
 
-        <Route path="reports" element={<AdminReports />} />
-        <Route path="settings" element={<AdminSettings />} />
-      </Route>
-    </Routes>
+          <Route path="reports" element={<AdminReports />} />
+          <Route path="settings" element={<AdminSettings />} />
+        </Route>
+      </Routes>
+    </>
   );
 }
 
